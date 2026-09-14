@@ -15,8 +15,7 @@ body });
  res.status(201).json(post);
  } catch (err) {
  res.status(400).json({
- error: { code: err.code || "VALIDATION_ERROR", message:
-err.message },
+ error: { code: err.code || "VALIDATION_ERROR", message:err.message },
  });
  }
 });
@@ -29,4 +28,4 @@ router.get("/posts", async (req, res, next) => {
         next(err);
         }
        });
-       export default router;
+export default router;

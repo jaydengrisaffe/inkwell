@@ -1,4 +1,4 @@
-/ client/src/components/PostEditor.jsx
+// client/src/components/PostEditor.jsx
 //
 // Implements the state machine: Idle -> Editing ->
 // Publishing -> Published | Error -> Editing.
@@ -35,14 +35,12 @@ export function PostEditor({ onPublished }) {
     <div>
     <input
     value={title}
-    onChange={(e) => { setTitle(e.target.value); setStatu
-   s(STATES.EDITING); }}
+    onChange={(e) => { setTitle(e.target.value); setStatus(STATES.EDITING); }}
     placeholder="Post title"
     />
     <textarea
     value={body}
-    onChange={(e) => { setBody(e.target.value); setStatus
-   (STATES.EDITING); }}
+    onChange={(e) => { setBody(e.target.value); setStatus(STATES.EDITING); }}
     placeholder="Write your post..."
     />
     {errorMessage && <p role="alert">{errorMessage}</p>}

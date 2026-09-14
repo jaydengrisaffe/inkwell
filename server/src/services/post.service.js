@@ -15,8 +15,7 @@ export const PostService = {
  });
  },
  async listPublished({ page = 1, pageSize = 10 }) {
- const { posts, hasMore } = await PostRepository.findPubli
-shed({ page, pageSize });
+ const { posts, hasMore } = await PostRepository.findPublished({ page, pageSize });
  return { posts, page, hasMore };
  },
 };

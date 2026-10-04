@@ -10,6 +10,8 @@ class EmailAlreadyRegisteredError extends Error {}
 class WeakPasswordError extends Error {}
 class InvalidCredentialsError extends Error {}
 const MIN_PASSWORD_LENGTH = 8;
+const BCRYPT_COST_FACTOR = 10;
+const passwordHash = await bcrypt.hash(password, BCRYPT_COST_FACTOR);
 export const AuthService = {
  async register({ email, displayName, password }) {
  assertNonEmpty(email, "email", "MISSING_EMAIL");

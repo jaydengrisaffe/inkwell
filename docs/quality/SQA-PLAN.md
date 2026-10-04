@@ -30,7 +30,7 @@ project's scale)
 ell owns SQA plan adherence.
 
 
-## Metrics Snapshot 
+## Metrics Snapshot During Workshop 11
 - Number of commits = 17
 - Logged defects = 2
 - Backlog item count = 2

@@ -23,6 +23,6 @@ m | 3 | Backlog | See use-cases.md |
 | US-07 | As an author, I want basic analytics... | Low | 5 |
 Backlog | See use-cases.md |
 
-| US-08 | As a registered user, I want the ability to do tag-based searching. | High | 3 | Backlog | 3 days in order to add the backend filtering and frontend functionality. See use-cases.md |
+| US-08 | As a registered user, I want the ability to do tag-based searching. | High | 3 | Requirements Defined | 3 days in order to add the backend filtering and frontend functionality. See use-cases.md |
 
-| US-09 | As an author, I want the ability to post edit my publications. | Medium | 2 | Backlog | 2 days to add edit ability and a way to track edited publications on the model. See use-cases.md |
+| US-09 | As an author, I want the ability to post edit my publications. | Medium | 2 | Requirements Defined | 2 days to add edit ability and a way to track edited publications on the model. See use-cases.md |

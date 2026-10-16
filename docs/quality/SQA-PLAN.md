@@ -10,11 +10,9 @@ thub/PULL_REQUEST_TEMPLATE.md)
 iewed before merge
 - Review findings logged in docs/reviews/
 ## Testing (expanded in Lecture 12-14)
-- Unit tests: Services and Repositories (Jest) — starting Lec
-ture 12
+- Unit tests: Services and Repositories (Jest) — ACTIVE as of Lecture 12
 - Integration tests: Routes (Supertest) — starting Lecture 13
-- End-to-end tests: critical user flows (Playwright) — starti
-ng Lecture 14
+- End-to-end tests: critical user flows (Playwright) — starting Lecture 14
 ## Defect Tracking
 - All discovered defects (via review, testing, or manual use)
 recorded in docs/quality/DEFECT-LOG.md

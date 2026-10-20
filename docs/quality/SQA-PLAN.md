@@ -11,7 +11,7 @@ iewed before merge
 - Review findings logged in docs/reviews/
 ## Testing (expanded in Lecture 12-14)
 - Unit tests: Services and Repositories (Jest) — ACTIVE as of Lecture 12
-- Integration tests: Routes (Supertest) — starting Lecture 13
+- Integration tests: Routes → Services → Repositories, real test DB (Supertest) ACTIVE (Lecture 13)
 - End-to-end tests: critical user flows (Playwright) — starting Lecture 14
 ## Defect Tracking
 - All discovered defects (via review, testing, or manual use)

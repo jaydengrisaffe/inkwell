@@ -79,8 +79,7 @@ font-medium text-gray-700">
  <textarea
  id="post-body"
  value={body}
- onChange={(e) => { setBody(e.target.value); setSt
-atus(STATES.EDITING); }}
+ onChange={(e) => { setBody(e.target.value); setStatus(STATES.EDITING); }}
  rows={10}
  className="mt-1 block w-full rounded border-gray300 shadow-sm"
  />

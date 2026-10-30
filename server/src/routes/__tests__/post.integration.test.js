@@ -19,6 +19,7 @@ beforeEach(async () => {
 afterAll(async () => {
     await prisma.$disconnect();
 });
+
 test("full flow: register, publish, and browse (US-01, US-03,US-04 validation)", async () => {
     // Arrange + Act (Section 4.6's AAA pattern): register a real user
     const registerRes = await request(app)
@@ -42,7 +43,6 @@ test("full flow: register, publish, and browse (US-01, US-03,US-04 validation)",
     expect(feedRes.body.posts[0].title).toBe("Hello, Inkwell");
 });
 
-
 test("registering with a duplicate email fails end to end (US-01 extension 3a, validated)", async () => {
     await request(app)
     .post("/api/auth/register")
@@ -53,4 +53,18 @@ test("registering with a duplicate email fails end to end (US-01 extension 3a, v
     .send({ email: "alice@example.com", displayName: "Alice Two", password: "correcthorse" });
     expect(secondAttempt.status).toBe(400);
     expect(secondAttempt.body.error.code).toBe("EMAIL_ALREADY_REGISTERED");
+});
+
+test("GET /api/posts rejects or clamps an oversized pageSize parameter (STRIDE DoS mitigation)", async () => {
+    // Act: Request the post feed with an excessively large pageSize parameter
+    const res = await request(app).get("/api/posts?pageSize=999999");
+
+    // Assert: Depending on your implementation pattern, check that it either:
+    // Option A (Clamping): Returns 200 OK with pageSize capped (e.g., at 100)
+    // Option B (Rejection): Returns 400 Bad Request
+    if (res.status === 200) {
+        expect(res.body.pageSize).toBeLessThanOrEqual(100);
+    } else {
+        expect(res.status).toBe(400);
+    }
 });

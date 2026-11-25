@@ -1,0 +1,49 @@
+# render.yaml
+services:
+  - type: web
+    name: inkwell-staging
+    runtime: image
+    plan: free
+    image:
+      url: ghcr.io/jaydengrisaffe-ua/inkwell-server:34807cb81e9873663ea6e09f68a6c9fda2d8774f
+      creds:
+        fromRegistryCreds:
+          name: ghcr-read-packages
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: inkwell-db
+          property: connectionString
+      - key: NODE_ENV
+        value: staging
+      - key: ACCESS_TOKEN_SECRET
+        generateValue: true
+      - key: REFRESH_TOKEN_SECRET
+        generateValue: true
+
+  - type: web
+    name: inkwell-production
+    runtime: image
+    plan: free
+    image:
+      url: ghcr.io/jaydengrisaffe-ua/inkwell-server:34807cb81e9873663ea6e09f68a6c9fda2d8774f
+      creds:
+        fromRegistryCreds:
+          name: ghcr-read-packages
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: inkwell-db
+          property: connectionString
+      - key: NODE_ENV
+        value: production
+      - key: ACCESS_TOKEN_SECRET
+        generateValue: true
+      - key: REFRESH_TOKEN_SECRET
+        generateValue: true
+
+databases:
+  - name: inkwell-db
+    plan: free
